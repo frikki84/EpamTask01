@@ -1,9 +1,28 @@
-package by.training.jwd.may2020.dziadkouskaya.task01.unit06.model;
+package by.epamtc.jwdmay2020.dziadkouskaya.task01.unit06;
 
-public class ArithmeticProgressionOperations {
+/*
+Сумма первых n членов арифметической прогрессии вычисляется по формуле Sn = ( a1 + an )* n / 2. 
+Даны a1 и d (шаг арифметической прогрессии). 
+Найдите n, при котором значение Sn выходит за диапазон типов int и long (экспериментальным путем).
+*/
 
+public class ControllerUnit06 {
+
+	public static void main(String[] args) {
+		int a = 1000000000;
+		int d = -1000;
+
+		int nOutOfInt = findArithmeticProgressionSumOutOfInt(a, d);
+		double nOutOgLong = findArithmeticProgressionSumOutOfLong(a, d);
+
+		System.out.println("The step at which the amount goes beyond INT is " + nOutOfInt
+				+ "\nThe step at which the amount goes beyond LONG is " + nOutOgLong);
+
+	}
+	
 	public static int findArithmeticProgressionSumOutOfInt(int a, int d) {
 		double limitMax = Integer.MAX_VALUE;
+		System.out.println("MaxLimit = " + limitMax);
 		double limitMin = Integer.MIN_VALUE;
 
 		int counter = 1;
@@ -37,23 +56,5 @@ public class ArithmeticProgressionOperations {
 		return counter;
 	}
 
-	public static double findArithmeticProgressionSumOutOfLongAlternative(int a, int d) {
-		double counter = 1;
-		long an = a;
-		long arifmeticProgressSum = a;
-		try {
-			while (true) {
-				an += d;
-				counter += 1;
-				double middleSumm = Math.addExact(arifmeticProgressSum, an);
-				arifmeticProgressSum += an;
-			}
-		} catch (ArithmeticException e) {
-			return counter;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return 0;
-	}
-
+	
 }
