@@ -1,0 +1,4 @@
+*.settings/
+Task01Epam/Task01Epam/bin/
+*.classpath
+*.project
